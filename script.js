@@ -1,19 +1,11 @@
 const express = require('express')
 const app = express()
-const port = 3000
-
-var name = "Igor Amidzic";
 
 app.get('/', (req, res) => {
-  console.log(name)
-  res.send(name)
+  res.json({hello: 'world'})
 })
 
-app.get('/api/set-name', (req, res) => {
-  name = req.params.name
-  console.log(name)
-  res.send("Success")
-})
+const port = process.env.port || 3000;
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
